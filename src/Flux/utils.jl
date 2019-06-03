@@ -1,7 +1,7 @@
 function destructure(m)
   xs = []
-  mapleaves(m) do x
-    x isa TrackedArray && push!(xs, x)
+  Flux.mapleaves(m) do x
+    x isa AbstractArray && push!(xs, x)
     return x
   end
   return vcat(vec.(xs)...)
